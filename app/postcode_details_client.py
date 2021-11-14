@@ -8,17 +8,8 @@ class PostcodeDetailsClient:
 
     def __init__(self, postcode: str) -> None:
         self.postcode = postcode
-        self.response = None
-
-    def search(self):
         resp = requests.get(f'{POSTCODES_IO_URL}/{self.postcode}')
-        self.response = resp.json()
-
-    @property
-    def search_result(self):
-        if self.response is None:
-            self.search()
-        return self.response
+        self.search_result = resp.json()
 
     @property
     def status(self) -> int:
