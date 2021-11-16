@@ -1,5 +1,12 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
+    app.config.from_object('app.config.Config')
 
-from app import routes
+    @app.route('/')
+    @app.route('/index')
+    def index():
+        return "Todo...."
+
+    return app

@@ -1,3 +1,2 @@
-FLASK_APP=postcode_checker.py
+FLASK_APP=app
 FLASK_ENV=development
-
