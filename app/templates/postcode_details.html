@@ -11,11 +11,11 @@
         <p test-id="postcode_servable">This postcode has been manually marked as always servable, regardless of it’s local authority.</p>
     {% endif %}
     {% if in_servable_local_authority %}
-        <p test-id="lsoa_servable">This postcode’s LSOA is {{ lsoa }} - a local authority that is listed as servable.</p>
+        <p test-id="lsoa_servable">This postcode is within {{ lsoa }} - a local authority that’s been listed as servable.</p>
     {% endif %}
 {% else %}
     {% if lsoa %}
-        <p test-id="lsoa_not_servable">This postcode’s LSOA is {{ lsoa }} - this local authority isn’t currently listed as servable.</p>
+        <p test-id="lsoa_not_servable">This postcode is within {{ lsoa }} - this local authority isn’t currently listed as servable.</p>
     {% elif is_invalid_postcode %}
         <p test-id="invalid_postcode">{{ postcode }} doesn’t look like it’s in the form of a valid UK postcode - double check you’ve entered the right
         postcode.</p>
