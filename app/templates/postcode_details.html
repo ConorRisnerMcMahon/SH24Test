@@ -1,0 +1,27 @@
+<h1>Results on {{ postcode }}</h1>
+
+{% if is_servable %}
+    <p test-id="is_servable">This postcode is in your service area.</p>
+{% else %}
+    <p test-id="is_not_servable">This postcode is <strong>not</strong> in your service area.</p>
+{% endif %}
+
+{% if is_servable %}
+    {% if manually_marked_as_servable %}
+        <p test-id="postcode_servable">This postcode has been manually marked as always servable, regardless of it’s local authority.</p>
+    {% endif %}
+    {% if in_servable_local_authority %}
+        <p test-id="lsoa_servable">This postcode’s LSOA is {{ lsoa }} - a local authority that is listed as servable.</p>
+    {% endif %}
+{% else %}
+    {% if lsoa %}
+        <p test-id="lsoa_not_servable">This postcode’s LSOA is {{ lsoa }} - this local authority isn’t currently listed as servable.</p>
+    {% elif is_invalid_postcode %}
+        <p test-id="invalid_postcode">{{ postcode }} doesn’t look like it’s in the form of a valid UK postcode - double check you’ve entered the right
+        postcode.</p>
+    {% else %}
+        <p p test-id="no_lsoa">We couldn’t find any information about the area {{ postcode }} is in - it may not be a valid UK postcode.</p>
+    {% endif %}
+{% endif %}
+
+<a href="{{ url_for('index') }}">Search again</a>

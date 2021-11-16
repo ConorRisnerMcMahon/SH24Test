@@ -1,0 +1,9 @@
+<h1>Search for a postcode</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.postcode.label }}<br>
+            {{ form.postcode(size=10) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>

@@ -93,11 +93,10 @@ def test_can_create_a_search_result(
 
     with app.app_context():
         search_result = search_for_postcode('E7 0NX')
-        
+
     assert_that(search_result.postcode, equal_to('E7 0NX'))
     assert_that(search_result.lsoa, equal_to('Newham 007B'))
     assert_that(search_result.is_servable, is_(True))
     assert_that(search_result.manually_marked_as_servable, is_(True))
     assert_that(search_result.in_servable_local_authority, is_(True))
     assert_that(search_result.is_invalid_postcode, is_(False))
-
